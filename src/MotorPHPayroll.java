@@ -22,15 +22,19 @@ public class MotorPHPayroll {
     static double grossWage;
     static double netWage;
     public static void main(String[] args) {
+    // ===============================
+    // TEST DATA (temporary values pwede palitan for testing)
+    // ===============================
+    totalRegularHours = 160;
+    overtimeHours = 10;
+    hourlyRate = 100;
 
-        // ===== PROGRAM FLOW =====
-        loadEmployees();
-        loadAttendance();
-        computeHours();
-        calculateGrossWage();
-        calculateNetSalary();
-        displayPayroll();
+    // run the payroll computation
+    calculateGrossWage();
 
+    // show result
+    displayPayroll();
+        
     }
 
     // ============================================
@@ -76,7 +80,14 @@ public class MotorPHPayroll {
     // ============================================
     public static void calculateGrossWage() {
 
-        // >>> WRITE YOUR CODE HERE <<<
+        // calculate pay for regular working hours
+        double regularPay = totalRegularHours * hourlyRate;
+
+        // calculate pay for overtime hours (1.25 overtime rate)
+        double overtimePay = overtimeHours * hourlyRate * 1.25;
+
+        // add regular pay and overtime pay to get gross wage
+        grossWage = regularPay + overtimePay;
         
         
     }
@@ -99,9 +110,11 @@ public class MotorPHPayroll {
     // PLACE YOUR CODE BELOW
     // ============================================
     public static void displayPayroll() {
-
-        // >>> WRITE YOUR CODE HERE <<<
-        
-        
+        // Lagyan lang ng "//" sa umpisa ng line para gawing comment for testing
+        System.out.println("----- Payroll Summary -----");
+        System.out.println("Regular Hours: " + totalRegularHours);
+        System.out.println("Overtime Hours: " + overtimeHours);
+        System.out.println("Hourly Rate: " + hourlyRate);
+        System.out.println("Gross Wage: " + grossWage);
     }
 }
